@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'sha_pass_hash' => sha1(strtoupper($data['username'].':'.$data['password'])),
             'expansion' => 1,
+            'gmlevel' => 0,
         ]);
     }
 }
