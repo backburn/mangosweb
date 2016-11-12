@@ -11,6 +11,7 @@ class User extends Authenticatable
 
     protected $connection = 'realmd';
     protected $table = 'account';
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
