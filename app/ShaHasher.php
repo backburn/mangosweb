@@ -5,6 +5,7 @@
  * Date: 11/11/2016
  * Time: 5:42 PM
  */
+namespace App;
 
 use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 

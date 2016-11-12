@@ -6,6 +6,8 @@
  * Time: 5:44 PM
  */
 
+namespace App\Providers;
+
 use App\ShaHasher;
 use Illuminate\Hashing\HashServiceProvider;
 
