@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'welcome', 'uses' => function () {
     return view('welcome');
-});
+}]);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/realms', 'RealmsController@index');
-Route::get('/characters', 'CharactersController@index');
-Route::resource('/accounts', 'AccountsController');
+Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/realms', ['as' => 'realms', 'uses' => 'RealmsController@index']);
+Route::get('/characters', ['as' => 'characters', 'uses' => 'CharactersController@index']);
+Route::resource('/accounts', ['as' => 'accounts', 'uses' => 'AccountsController']);

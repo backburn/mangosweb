@@ -12,21 +12,28 @@ Breadcrumbs::register('home', function($breadcrumbs)
     $breadcrumbs->push('Home', route('home'));
 });
 
-// Home > About
-Breadcrumbs::register('about', function($breadcrumbs)
+// Home > Realms
+Breadcrumbs::register('realms', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('About', route('about'));
+    $breadcrumbs->push('Realms', route('realms'));
 });
 
-// Home > Blog
+// Home > Characters
+Breadcrumbs::register('characters', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Characters', route('characters'));
+});
+
+// Home > Accounts
 Breadcrumbs::register('accounts', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Blog', route('blog'));
+    $breadcrumbs->push('Accounts', route('accounts'));
 });
 
-// Home > Blog > [Category]
+// Home > Accounts > [id]
 Breadcrumbs::register('id', function($breadcrumbs, $id)
 {
     $breadcrumbs->parent('accounts');
