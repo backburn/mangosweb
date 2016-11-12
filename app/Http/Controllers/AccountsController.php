@@ -35,7 +35,7 @@ class AccountsController extends Controller
      */
     public function create()
     {
-        return view('account.create');
+        return view('accounts.create');
     }
 
     /**
