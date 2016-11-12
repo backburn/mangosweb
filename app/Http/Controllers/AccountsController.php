@@ -95,23 +95,32 @@ class AccountsController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $this->validate($request, [
-            'username' => 'min:3|max:32|alphanum|unique:realmd.account',
-            'password' => 'min:6|max:32|alphanum',
-        ]);
-
         $account = Account::whereEmail(\Auth::user()->email)->whereId($id)->get()->first();
-        if (!$account) { abort(403, 'Unauthorized action.'); }
-        $update = [];
-        if ($request['password'] ?? false) {
-            $update['sha_pass_hash'] = sha1(strtoupper($account->username . ':' . $request['password']));
+        if ($request->ajax()) {
+            if (!$account) { abort(403, 'Unauthorized action.'); }
+            if ($request['name'] == 'email') {
+                $this->validate($request, [
+                    'value' => 'email',
+                ]);
+                $account->email = $request['value'];
+                $account->save();
+            }
+        } else {
+            if (!$account) { abort(403, 'Unauthorized action.'); }
+            $this->validate($request, [
+                'username' => 'min:3|max:32|alphanum|unique:realmd.account',
+                'password' => 'min:6|max:32|alphanum',
+            ]);
+            $update = [];
+            if ($request['password'] ?? false) {
+                $update['sha_pass_hash'] = sha1(strtoupper($account->username . ':' . $request['password']));
+            }
+            if ($request['username'] ?? false) {
+                $update['username'] = $request['username'];
+            }
+            $account->update($update);
+            $account->save();
         }
-        if ($request['username'] ?? false) {
-            $update['username'] = $request['username'];
-        }
-        $account->update($update);
-        $account->save();
     }
 
     /**
