@@ -9,13 +9,16 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $connection = 'realmd';
+    protected $table = 'account';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password',
     ];
 
     /**
