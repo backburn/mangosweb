@@ -1,73 +1,113 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Account;
+use Illuminate\Http\Request;
 
-class AccountController extends Controller
+class AccountsController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Display a listing of the resource.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return \Illuminate\Http\Response
      */
-    protected function validator(array $data)
+    public function index()
     {
-        return Validator::make($data, [
+        return view('home');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('account.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
             'username' => 'required|min:3|max:32|alphanum|unique:account',
             'password' => 'required|min:6|max:32|alphanum|confirmed',
         ]);
-    }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'username' => $data['username'],
-            'sha_pass_hash' => sha1(strtoupper($data['username'].':'.$data['password'])),
+        User::create([
+            'username' => $request['username'],
+            'sha_pass_hash' => sha1(strtoupper($request['username'].':'.$request['password'])),
+            'email' => \Auth::user()->email,
+            'gmlevel' => 0,
+            'expansion' => 1,
         ]);
     }
 
-    public function register() {
-
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $account = Account::where('email', \Auth::user()->email)->where('id', $id);
+        return view('accounts.show', ['account' => $account]);
     }
+
+    public function list()
+    {
+        $accounts = Account::where('email', \Auth::user()->email)->paginate(10);
+        return view('accounts.list', ['accounts' => $accounts]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $account = Account::findOrFail($id);
+        return view('accounts.edit', ['account' => $account]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
 
 
 }
