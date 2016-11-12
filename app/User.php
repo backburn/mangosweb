@@ -30,4 +30,10 @@ class User extends Authenticatable
     protected $hidden = [
         'sha_pass_hash', 'remember_token',
     ];
+
+
+    public function getAuthPassword()
+    {
+        return $this->sha_pass_hash;
+    }
 }
