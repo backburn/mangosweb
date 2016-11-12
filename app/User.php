@@ -9,17 +9,13 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $connection = 'realmd';
-    protected $table = 'account';
-    public $timestamps = false;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'sha_pass_hash', 'expansion', 'gmlevel',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -28,12 +24,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'sha_pass_hash', 'remember_token',
+        'password', 'remember_token',
     ];
-
-
-    public function getAuthPassword()
-    {
-        return $this->sha_pass_hash;
-    }
 }

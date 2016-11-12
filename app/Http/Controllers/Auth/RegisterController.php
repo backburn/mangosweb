@@ -48,9 +48,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|min:3|max:32|alphanum|unique:realmd.account',
-            'email' => 'required|email|max:255|unique:realmd.account',
-            'password' => 'required|min:6|max:32|alphanum|confirmed',
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -63,11 +63,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'username' => strtoupper($data['username']),
+            'name' => $data['name'],
             'email' => $data['email'],
-            'sha_pass_hash' => sha1(strtoupper($data['username'].':'.$data['password'])),
-            'expansion' => 1,
-            'gmlevel' => 0,
+            'password' => bcrypt($data['password']),
         ]);
     }
 }

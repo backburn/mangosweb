@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.22 on 2016-11-12.
+ * Generated for Laravel 5.3.22 on 2016-11-11.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -5935,30 +5935,52 @@ namespace {
     class Hash extends \Illuminate\Support\Facades\Hash{
         
         /**
-         * 
+         * Hash the given value.
          *
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @throws \RuntimeException
          * @static 
          */
         public static function make($value, $options = array()){
-            return \App\ShaHasher::make($value, $options);
+            return \Illuminate\Hashing\BcryptHasher::make($value, $options);
         }
         
         /**
-         * 
+         * Check the given plain value against a hash.
          *
+         * @param string $value
+         * @param string $hashedValue
+         * @param array $options
+         * @return bool 
          * @static 
          */
         public static function check($value, $hashedValue, $options = array()){
-            return \App\ShaHasher::check($value, $hashedValue, $options);
+            return \Illuminate\Hashing\BcryptHasher::check($value, $hashedValue, $options);
         }
         
         /**
-         * 
+         * Check if the given hash has been hashed using the given options.
          *
+         * @param string $hashedValue
+         * @param array $options
+         * @return bool 
          * @static 
          */
         public static function needsRehash($hashedValue, $options = array()){
-            return \App\ShaHasher::needsRehash($hashedValue, $options);
+            return \Illuminate\Hashing\BcryptHasher::needsRehash($hashedValue, $options);
+        }
+        
+        /**
+         * Set the default password work factor.
+         *
+         * @param int $rounds
+         * @return $this 
+         * @static 
+         */
+        public static function setRounds($rounds){
+            return \Illuminate\Hashing\BcryptHasher::setRounds($rounds);
         }
         
     }

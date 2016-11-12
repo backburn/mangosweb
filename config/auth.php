@@ -66,7 +66,7 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'mangos',
+            'driver' => 'eloquent',
             'model' => App\User::class,
         ],
 
