@@ -20,11 +20,11 @@ class AccountsController extends Controller
      */
     public function index(Request $request)
     {
-        $accounts = Account::where('email', \Auth::user()->email)->paginate(10);
+        $accounts = Account::where('email', \Auth::user()->email);
         if ($request->ajax()) {
             return response()->json($accounts);
         } else {
-            return view('accounts.index', ['accounts' => $accounts]);
+            return view('accounts.index', ['accounts' => $accounts->paginate(10)]);
         }
     }
 
