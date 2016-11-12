@@ -68,7 +68,7 @@ class AccountsController extends Controller
      */
     public function show($id)
     {
-        $account = Account::where('email', \Auth::user()->email)->where('id', $id);
+        $account = Account::whereEmail(\Auth::user()->email)->whereId($id)->get();
         if (!$account) { abort(403, 'Unauthorized action.'); }
         return view('accounts.show', ['account' => $account]);
     }
@@ -81,7 +81,7 @@ class AccountsController extends Controller
      */
     public function edit($id)
     {
-        $account = Account::where('email', \Auth::user()->email)->where('id', $id);
+        $account = Account::whereEmail(\Auth::user()->email)->whereId($id)->get();
         if (!$account) { abort(403, 'Unauthorized action.'); }
         return view('accounts.edit', ['account' => $account]);
     }
@@ -101,7 +101,7 @@ class AccountsController extends Controller
             'password' => 'min:6|max:32|alphanum',
         ]);
 
-        $account = Account::where('email', \Auth::user()->email)->where('id', $id);
+        $account = Account::whereEmail(\Auth::user()->email)->whereId($id)->get();
         if (!$account) { abort(403, 'Unauthorized action.'); }
         $update = [];
         if ($request['password'] ?? false) {
