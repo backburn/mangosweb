@@ -1936,6 +1936,159 @@ namespace {
     }
 
 
+    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function register($name, $callback){
+            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function exists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generate($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see generateIfExistsArray
+         * @static 
+         */
+        public static function generateArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function render($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see renderIfExistsArray
+         * @static 
+         */
+        public static function renderArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRoute($name){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRouteArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function clearCurrentRoute(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setView($view){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
+        }
+        
+    }
+
+
     class Bus extends \Illuminate\Support\Facades\Bus{
         
         /**
@@ -2400,27 +2553,38 @@ namespace {
          * @static 
          */
         public static function flush(){
-            \Illuminate\Cache\FileStore::flush();
+            \Illuminate\Cache\RedisStore::flush();
         }
         
         /**
-         * Get the Filesystem instance.
+         * Get the Redis connection instance.
          *
-         * @return \Illuminate\Filesystem\Filesystem 
+         * @return \Predis\ClientInterface 
          * @static 
          */
-        public static function getFilesystem(){
-            return \Illuminate\Cache\FileStore::getFilesystem();
+        public static function connection(){
+            return \Illuminate\Cache\RedisStore::connection();
         }
         
         /**
-         * Get the working directory of the cache.
+         * Set the connection name to be used.
          *
-         * @return string 
+         * @param string $connection
+         * @return void 
          * @static 
          */
-        public static function getDirectory(){
-            return \Illuminate\Cache\FileStore::getDirectory();
+        public static function setConnection($connection){
+            \Illuminate\Cache\RedisStore::setConnection($connection);
+        }
+        
+        /**
+         * Get the Redis database instance.
+         *
+         * @return \Illuminate\Redis\Database 
+         * @static 
+         */
+        public static function getRedis(){
+            return \Illuminate\Cache\RedisStore::getRedis();
         }
         
         /**
@@ -2430,7 +2594,18 @@ namespace {
          * @static 
          */
         public static function getPrefix(){
-            return \Illuminate\Cache\FileStore::getPrefix();
+            return \Illuminate\Cache\RedisStore::getPrefix();
+        }
+        
+        /**
+         * Set the cache key prefix.
+         *
+         * @param string $prefix
+         * @return void 
+         * @static 
+         */
+        public static function setPrefix($prefix){
+            \Illuminate\Cache\RedisStore::setPrefix($prefix);
         }
         
     }
@@ -2668,6 +2843,57 @@ namespace {
          */
         public static function getQueuedCookies(){
             return \Illuminate\Cookie\CookieJar::getQueuedCookies();
+        }
+        
+    }
+
+
+    class Crypt extends \Illuminate\Support\Facades\Crypt{
+        
+        /**
+         * Determine if the given key and cipher combination is valid.
+         *
+         * @param string $key
+         * @param string $cipher
+         * @return bool 
+         * @static 
+         */
+        public static function supported($key, $cipher){
+            return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
+        }
+        
+        /**
+         * Encrypt the given value.
+         *
+         * @param string $value
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
+         * @static 
+         */
+        public static function encrypt($value){
+            return \Illuminate\Encryption\Encrypter::encrypt($value);
+        }
+        
+        /**
+         * Decrypt the given value.
+         *
+         * @param string $payload
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
+         * @static 
+         */
+        public static function decrypt($payload){
+            return \Illuminate\Encryption\Encrypter::decrypt($payload);
+        }
+        
+        /**
+         * Get the encryption key.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getKey(){
+            return \Illuminate\Encryption\Encrypter::getKey();
         }
         
     }
