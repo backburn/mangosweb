@@ -30,6 +30,7 @@ class LoginController extends Controller
         return 'username';
     }
 
+
     /**
      * Where to redirect users after login.
      *
