@@ -25,6 +25,8 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
+        $.fn.editable.defaults.ajaxOptions = { type: "PUT" };
+        $('.edits-inline').editable();
     </script>
 </head>
 <body>
