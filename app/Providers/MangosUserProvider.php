@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Auth\EloquentUserProvider;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 class MangosUserProvider extends EloquentUserProvider {
