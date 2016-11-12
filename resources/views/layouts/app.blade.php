@@ -56,6 +56,7 @@
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
                             <li><a href="{{ url('/realms') }}">Realms</a></li>
+                            <li><a href="{{ url('/accounts') }}">Accounts</a></li>
                             <li><a href="{{ url('/characters') }}">Characters</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

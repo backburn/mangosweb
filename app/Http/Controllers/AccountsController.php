@@ -20,7 +20,8 @@ class AccountsController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $accounts = Account::where('email', \Auth::user()->email)->paginate(10);
+        return view('accounts.index', ['accounts' => $accounts]);
     }
 
     /**
@@ -65,12 +66,6 @@ class AccountsController extends Controller
     {
         $account = Account::findOrFail($id);
         return view('accounts.show', ['account' => $account]);
-    }
-
-    public function list()
-    {
-        $accounts = Account::where('email', \Auth::user()->email)->paginate(10);
-        return view('accounts.list', ['accounts' => $accounts]);
     }
 
     /**

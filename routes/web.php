@@ -20,5 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/realms', 'RealmsController@index');
 Route::get('/characters', 'CharactersController@index');
-Route::get('/accounts/list', 'AccountsController@list');
 Route::resource('/accounts', 'AccountsController');
