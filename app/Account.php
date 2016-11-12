@@ -48,4 +48,8 @@ class Account extends Model
     //
     protected $connection = 'realmd';
     protected $table = 'account';
+
+    protected $fillable = [
+        'username', 'sha_pass_hash',
+    ];
 }
