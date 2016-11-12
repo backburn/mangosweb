@@ -25,7 +25,7 @@ class RealmsController extends Controller
      */
     public function index()
     {
-        $realms = Realm::paginate(1);
+        $realms = Realm::paginate(15);
 
         return view('realms', [
             'name' => 'Phelps',
