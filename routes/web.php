@@ -20,4 +20,4 @@ Auth::routes();
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('/realms', ['as' => 'realms', 'uses' => 'RealmsController@index']);
 Route::get('/characters', ['as' => 'characters', 'uses' => 'CharactersController@index']);
-Route::resource('/accounts', ['as' => 'accounts', 'uses' => 'AccountsController']);
+Route::resource('/accounts', 'AccountsController');
