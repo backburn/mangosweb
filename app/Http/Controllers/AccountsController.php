@@ -68,7 +68,8 @@ class AccountsController extends Controller
      */
     public function show($id)
     {
-        $account = Account::findOrFail($id);
+        $account = Account::where('email', \Auth::user()->email)->where('id', $id);
+        if (!$account) { abort(403, 'Unauthorized action.'); }
         return view('accounts.show', ['account' => $account]);
     }
 
@@ -80,7 +81,8 @@ class AccountsController extends Controller
      */
     public function edit($id)
     {
-        $account = Account::findOrFail($id);
+        $account = Account::where('email', \Auth::user()->email)->where('id', $id);
+        if (!$account) { abort(403, 'Unauthorized action.'); }
         return view('accounts.edit', ['account' => $account]);
     }
 
@@ -93,7 +95,23 @@ class AccountsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, [
+            'username' => 'min:3|max:32|alphanum|unique:account',
+            'password' => 'min:6|max:32|alphanum',
+        ]);
+
+        $account = Account::where('email', \Auth::user()->email)->where('id', $id);
+        if (!$account) { abort(403, 'Unauthorized action.'); }
+        $update = [];
+        if ($request['password'] ?? false) {
+            $update['sha_pass_hash'] = sha1(strtoupper($account->username . ':' . $request['password']));
+        }
+        if ($request['username'] ?? false) {
+            $update['username'] = $request['username'];
+        }
+        $account->update($update);
+        $account->save();
     }
 
     /**
