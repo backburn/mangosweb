@@ -18,10 +18,14 @@ class AccountsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $accounts = Account::where('email', \Auth::user()->email)->paginate(10);
-        return view('accounts.index', ['accounts' => $accounts]);
+        if ($request->ajax()) {
+            return response()->json($accounts);
+        } else {
+            return view('accounts.index', ['accounts' => $accounts]);
+        }
     }
 
     /**
