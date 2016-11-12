@@ -89,6 +89,8 @@
             </div>
         </nav>
 
+        {!! Breadcrumbs::render() !!}
+
         @yield('content')
     </div>
 
