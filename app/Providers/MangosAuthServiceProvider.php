@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Hashing\BcryptHasher;
 
 class MangosAuthServiceProvider extends ServiceProvider
 {
@@ -18,7 +17,7 @@ class MangosAuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Auth::provider('mangos', function ($app, array $config) {
-            return new MangosUserProvider(BcryptHasher::class, \App\User::class);
+            return new MangosUserProvider();
         });
     }
 }
