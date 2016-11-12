@@ -34,7 +34,7 @@
                                 <td>{{ $account->id }}</td>
                                 <td>{{ $account->username }}</td>
                                 <td>{{ $account->gmlevel }}</td>
-                                <td><a href="#" data-type="text" data-pk="{{ $account->id }}" data-name="email" data-url="/accounts/{{ $account->id }}" data-title="Enter email">{{ $account->email }}</a></td>
+                                <td><a href="#" class="edits-inline" data-type="text" data-pk="{{ $account->id }}" data-name="email" data-url="/accounts/{{ $account->id }}" data-title="Enter email">{{ $account->email }}</a></td>
                                 <td>{{ $account->joindate }}</td>
                                 <td>{{ $account->last_ip }}</td>
                                 <td>{{ $account->failed_logins }}</td>
