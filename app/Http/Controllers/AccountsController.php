@@ -22,7 +22,7 @@ class AccountsController extends Controller
     {
         $accounts = Account::where('email', \Auth::user()->email);
         if ($request->ajax()) {
-            return response()->json($accounts);
+            return response()->json($accounts->all());
         } else {
             return view('accounts.index', ['accounts' => $accounts->paginate(10)]);
         }
