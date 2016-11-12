@@ -63,7 +63,7 @@ class AccountsController extends Controller
      */
     public function show($id)
     {
-        $account = Account::where('email', \Auth::user()->email)->where('id', $id);
+        $account = Account::findOrFail($id);
         return view('accounts.show', ['account' => $account]);
     }
 
