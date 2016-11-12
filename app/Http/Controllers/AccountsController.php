@@ -47,7 +47,7 @@ class AccountsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|min:3|max:32|alphanum|unique:account',
+            'username' => 'required|min:3|max:32|alphanum|unique:realmd.account',
             'password' => 'required|min:6|max:32|alphanum|confirmed',
         ]);
 
@@ -97,7 +97,7 @@ class AccountsController extends Controller
     {
 
         $this->validate($request, [
-            'username' => 'min:3|max:32|alphanum|unique:account',
+            'username' => 'min:3|max:32|alphanum|unique:realmd.account',
             'password' => 'min:6|max:32|alphanum',
         ]);
 
