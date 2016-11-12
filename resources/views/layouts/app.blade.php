@@ -103,6 +103,7 @@
             }
         });
         $(document).ready(function() {
+            $('.dropdown-toggle').dropdown();
             $('.edits-inline').editable();
         });
     </script>
