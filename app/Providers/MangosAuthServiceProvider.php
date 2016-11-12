@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Extensions\MangosUserProvider;
 use Illuminate\Support\ServiceProvider;
 
 class MangosAuthServiceProvider extends ServiceProvider

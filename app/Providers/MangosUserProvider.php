@@ -3,8 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\UserProvider;
-use App\User;
 
 class MangosUserProvider extends EloquentUserProvider {
     public function validateCredentials(Authenticatable $user, array $credentials)

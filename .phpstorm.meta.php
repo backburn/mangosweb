@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-11-10.
+    * Generated on 2016-11-12.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -27,7 +27,6 @@ namespace PHPSTORM_META {
             'db.factory' instanceof \Illuminate\Database\Connectors\ConnectionFactory,
             'db' instanceof \Illuminate\Database\DatabaseManager,
             'db.connection' instanceof \Illuminate\Database\MySqlConnection,
-            'encrypter' instanceof \Illuminate\Encryption\Encrypter,
             'files' instanceof \Illuminate\Filesystem\Filesystem,
             'filesystem' instanceof \Illuminate\Filesystem\FilesystemManager,
             'filesystem.disk' instanceof \Illuminate\Filesystem\FilesystemAdapter,
@@ -40,7 +39,7 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
-            'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\LogBroadcaster,
+            'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\NullBroadcaster,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
             'cache.store' instanceof \Illuminate\Cache\Repository,
@@ -101,7 +100,6 @@ namespace PHPSTORM_META {
             'command.queue.retry' instanceof \Illuminate\Queue\Console\RetryCommand,
             'command.queue.forget' instanceof \Illuminate\Queue\Console\ForgetFailedCommand,
             'command.queue.flush' instanceof \Illuminate\Queue\Console\FlushFailedCommand,
-            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
             'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
@@ -123,6 +121,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
+            'hash' instanceof \App\ShaHasher,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
             '' == '@',
@@ -142,7 +141,6 @@ namespace PHPSTORM_META {
             'db.factory' instanceof \Illuminate\Database\Connectors\ConnectionFactory,
             'db' instanceof \Illuminate\Database\DatabaseManager,
             'db.connection' instanceof \Illuminate\Database\MySqlConnection,
-            'encrypter' instanceof \Illuminate\Encryption\Encrypter,
             'files' instanceof \Illuminate\Filesystem\Filesystem,
             'filesystem' instanceof \Illuminate\Filesystem\FilesystemManager,
             'filesystem.disk' instanceof \Illuminate\Filesystem\FilesystemAdapter,
@@ -155,7 +153,7 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
-            'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\LogBroadcaster,
+            'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\NullBroadcaster,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
             'cache.store' instanceof \Illuminate\Cache\Repository,
@@ -216,7 +214,6 @@ namespace PHPSTORM_META {
             'command.queue.retry' instanceof \Illuminate\Queue\Console\RetryCommand,
             'command.queue.forget' instanceof \Illuminate\Queue\Console\ForgetFailedCommand,
             'command.queue.flush' instanceof \Illuminate\Queue\Console\FlushFailedCommand,
-            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
             'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
@@ -238,6 +235,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
+            'hash' instanceof \App\ShaHasher,
         ],
         \App::make('') => [
             '' == '@',
@@ -257,7 +255,6 @@ namespace PHPSTORM_META {
             'db.factory' instanceof \Illuminate\Database\Connectors\ConnectionFactory,
             'db' instanceof \Illuminate\Database\DatabaseManager,
             'db.connection' instanceof \Illuminate\Database\MySqlConnection,
-            'encrypter' instanceof \Illuminate\Encryption\Encrypter,
             'files' instanceof \Illuminate\Filesystem\Filesystem,
             'filesystem' instanceof \Illuminate\Filesystem\FilesystemManager,
             'filesystem.disk' instanceof \Illuminate\Filesystem\FilesystemAdapter,
@@ -270,7 +267,7 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
-            'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\LogBroadcaster,
+            'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\NullBroadcaster,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
             'cache.store' instanceof \Illuminate\Cache\Repository,
@@ -331,7 +328,6 @@ namespace PHPSTORM_META {
             'command.queue.retry' instanceof \Illuminate\Queue\Console\RetryCommand,
             'command.queue.forget' instanceof \Illuminate\Queue\Console\ForgetFailedCommand,
             'command.queue.flush' instanceof \Illuminate\Queue\Console\FlushFailedCommand,
-            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
             'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
@@ -353,6 +349,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
+            'hash' instanceof \App\ShaHasher,
         ],
         \app('') => [
             '' == '@',
@@ -372,7 +369,6 @@ namespace PHPSTORM_META {
             'db.factory' instanceof \Illuminate\Database\Connectors\ConnectionFactory,
             'db' instanceof \Illuminate\Database\DatabaseManager,
             'db.connection' instanceof \Illuminate\Database\MySqlConnection,
-            'encrypter' instanceof \Illuminate\Encryption\Encrypter,
             'files' instanceof \Illuminate\Filesystem\Filesystem,
             'filesystem' instanceof \Illuminate\Filesystem\FilesystemManager,
             'filesystem.disk' instanceof \Illuminate\Filesystem\FilesystemAdapter,
@@ -385,7 +381,7 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
-            'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\LogBroadcaster,
+            'Illuminate\Contracts\Broadcasting\Broadcaster' instanceof \Illuminate\Broadcasting\Broadcasters\NullBroadcaster,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
             'cache.store' instanceof \Illuminate\Cache\Repository,
@@ -446,7 +442,6 @@ namespace PHPSTORM_META {
             'command.queue.retry' instanceof \Illuminate\Queue\Console\RetryCommand,
             'command.queue.forget' instanceof \Illuminate\Queue\Console\ForgetFailedCommand,
             'command.queue.flush' instanceof \Illuminate\Queue\Console\FlushFailedCommand,
-            'hash' instanceof \Illuminate\Hashing\BcryptHasher,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
             'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
@@ -468,6 +463,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
+            'hash' instanceof \App\ShaHasher,
         ],
     ];
 }
