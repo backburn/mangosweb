@@ -31,7 +31,7 @@ Breadcrumbs::register('characters', function($breadcrumbs)
 Breadcrumbs::register('accounts.index', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Photos', route('accounts.index'));
+    $breadcrumbs->push('Accounts', route('accounts.index'));
 });
 
 // Accounts > Create Account
