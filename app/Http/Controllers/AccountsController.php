@@ -26,7 +26,7 @@ class AccountsController extends Controller
         if ($request->ajax()) {
             return response()->json($accounts);
         } else {
-            return view('accounts.index', ['accounts' => $accounts->paginate(10)]);
+            return view('accounts.index', ['accounts' => $accounts()->paginate(10)]);
         }
     }
 
