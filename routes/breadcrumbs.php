@@ -76,6 +76,6 @@ Breadcrumbs::register('register', function($breadcrumbs)
 Breadcrumbs::register('password.reset', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Register', route('register'));
+    $breadcrumbs->push('Password');
     $breadcrumbs->push('Reset', route('register'));
 });
