@@ -21,6 +21,7 @@
                                         </span>
                                     </div>
                                     <div class="panel-body">
+                                        <img width="100%" src="/img/maps/enus/zoom/{{ $character->zone }}.jpg" />
                                         <dl class="dl-horizontal">
                                             <dt>Gold</dt>
                                             <dd>{{ money($character->money) }}</dd>
