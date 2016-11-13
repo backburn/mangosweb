@@ -53,4 +53,8 @@ class Account extends Model
     protected $fillable = [
         'username', 'sha_pass_hash',
     ];
+
+    public function characters() {
+        return $this->hasMany('App\Character', 'account');
+    }
 }

@@ -26,11 +26,9 @@ class CharactersController extends Controller
      */
     public function index(Request $request)
     {
-        $account_ids = Account::where('email', \Auth::user()->email)->pluck('id');
-        $characters = Character::whereIn('account', $account_ids);
-
+        $characters = \Auth::user()->characters();
         if ($request->ajax()) {
-            return response()->json($characters->get());
+            return response()->json($characters);
         } else {
             return view('characters.index', ['characters' => $characters->paginate(10)]);
         }
