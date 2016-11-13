@@ -26,16 +26,31 @@ Breadcrumbs::register('characters', function($breadcrumbs)
     $breadcrumbs->push('Characters', route('characters'));
 });
 
-// Home > Accounts
-Breadcrumbs::register('accounts', function($breadcrumbs)
+
+// Accounts
+Breadcrumbs::register('accounts.index', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('Accounts', route('accounts'));
+    $breadcrumbs->push('Photos', route('accounts.index'));
 });
 
-// Home > Accounts > [id]
-Breadcrumbs::register('id', function($breadcrumbs, $id)
+// Accounts > Create Account
+Breadcrumbs::register('accounts.create', function($breadcrumbs)
 {
-    $breadcrumbs->parent('accounts');
-    $breadcrumbs->push($id->title, route('accounts', $id->id));
+    $breadcrumbs->parent('accounts.index');
+    $breadcrumbs->push('Create Account', route('accounts.create'));
+});
+
+// Accounts > [id]
+Breadcrumbs::register('accounts.show', function($breadcrumbs, $account)
+{
+    $breadcrumbs->parent('accounts.index');
+    $breadcrumbs->push($account->title, route('accounts.show', $account->id));
+});
+
+// Accounts > [id] > Edit Account
+Breadcrumbs::register('accounts.edit', function($breadcrumbs, $account)
+{
+    $breadcrumbs->parent('accounts.show', $account);
+    $breadcrumbs->push('Edit Account', route('accounts.edit', $account->id));
 });
