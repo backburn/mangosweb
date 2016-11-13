@@ -162,5 +162,5 @@ function mapY($map, $zone, $x, $y) {
 
 function zoneName($map, $zone) {
     global $world_maps;
-    return $world_maps[$map.'_'.$zone]['name'] ?? 'Twisting Nether';
+    return $world_maps[$map.'_'.$zone]['name'];
 }
