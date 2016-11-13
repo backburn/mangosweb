@@ -23,7 +23,7 @@
                                     <div class="panel-body">
                                         <div style="position: relative;">
                                             <div style="background-color: #fff; width: 6px; height: 6px; border-radius: 50%; position: absolute; left: {{ mapX($character->map, $character->zone, $character->position_x, $character->position_y) }}%; top:{{ mapY($character->map, $character->zone, $character->position_x, $character->position_y) }}%;"></div>
-                                            <img width="100%" src="/img/maps/enus/zoom/{{ $character->zone }}.jpg" />
+                                            <img width="100%" src="/img/maps/enus/normal/{{ $character->zone }}.jpg" />
                                         </div>
                                         <dl class="dl-horizontal">
                                             <dt>Gold</dt>
