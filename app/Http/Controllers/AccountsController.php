@@ -53,7 +53,7 @@ class AccountsController extends Controller
             'password' => 'required|min:6|max:32|alphanum|confirmed',
         ]);
 
-        User::create([
+        Account::create([
             'username' => $request['username'],
             'sha_pass_hash' => sha1(strtoupper($request['username'].':'.$request['password'])),
             'email' => \Auth::user()->email,
