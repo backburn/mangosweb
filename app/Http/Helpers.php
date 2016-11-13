@@ -212,7 +212,7 @@ function worldToMap($map, $zone, $x, $y) {
         '566_3820' => ['name' => 'Netherstorm Arena', 'y_min' => 2660.4165, 'y_max' => 389.5833, 'x_min' => 2918.75, 'x_max' => 2918.75],
         '530_4080' => ['name' => 'Sunwell', 'y_min' => -5302.083, 'y_max' => -8629.166, 'x_min' => 13568.749, 'x_max' => 13568.749]
     ];
-
+    if ($x == 0 || $y == 0) { return ['x' => 0, 'y' => 0]; }
     if ($world_maps[$map.'_'.$zone] ?? false) {
         $map = $world_maps[$map.'_'.$zone];
         $_x = ($x - $map['x_max']) / (($map['x_min'] - $map['x_max']) / 100);
