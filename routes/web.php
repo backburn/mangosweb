@@ -17,7 +17,7 @@ Route::get('/', ['as' => 'welcome', 'uses' => function () {
 
 //Auth::routes();
 // Authentication Routes...
-$this->get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm'])->name('login');
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
