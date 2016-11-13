@@ -32,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($account->characters() as $character)
+                        @foreach ($account->characters as $character)
                             <tr>
                                 <td>{{ $character->guid }}</td>
                                 <td>{{ $character->account }}</td>
