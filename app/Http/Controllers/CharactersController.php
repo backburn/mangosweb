@@ -27,7 +27,7 @@ class CharactersController extends Controller
     public function index(Request $request)
     {
         $account_ids = Account::where('email', \Auth::user()->email)->pluck('id');
-        $characters = Character::whereIn('id', $account_ids);
+        $characters = Character::whereIn('account', $account_ids);
 
         if ($request->ajax()) {
             return response()->json($characters->get());
