@@ -51,7 +51,7 @@ class Account extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'username', 'sha_pass_hash', 'gmlevel', 'expansion', 'user_id'
+        'username', 'sha_pass_hash', 'gmlevel', 'expansion', 'user_id', 'email',
     ];
 
     public function characters() {
