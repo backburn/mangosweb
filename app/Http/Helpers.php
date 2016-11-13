@@ -20,7 +20,7 @@ function race_image($gender, $race) {
 }
 
 function class_image($class) {
-    return 'img' . [
+    return '/img/' . [
         1 => "warrior",
         2 => "paladin",
         3 => "hunter",
