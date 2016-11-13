@@ -22,11 +22,11 @@ class AccountsController extends Controller
      */
     public function index(Request $request)
     {
-        $accounts = \Auth::user()->accounts;
+        $accounts = \Auth::user()->accounts();
         if ($request->ajax()) {
             return response()->json($accounts);
         } else {
-            return view('accounts.index', ['accounts' => $accounts()->paginate(10)]);
+            return view('accounts.index', ['accounts' => $accounts->paginate(10)]);
         }
     }
 
