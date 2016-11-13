@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
     public function characters() {
-        return $this->hasManyThrough('App\Character', 'App\Account', 'account', 'user_id', 'id');
+        return $this->hasManyThrough('App\Character', 'App\Account', 'user_id', 'account', 'id');
     }
 
 
