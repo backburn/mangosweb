@@ -54,7 +54,7 @@ class AccountsController extends Controller
         ]);
 
         Account::create([
-            'username' => $request['username'],
+            'username' => strtoupper($request['username']),
             'sha_pass_hash' => sha1(strtoupper($request['username'].':'.$request['password'])),
             'email' => \Auth::user()->email,
             'gmlevel' => 0,
