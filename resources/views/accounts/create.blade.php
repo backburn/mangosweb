@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Create Game Account</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/account/create') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/accounts') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
