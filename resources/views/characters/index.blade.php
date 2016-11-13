@@ -24,6 +24,10 @@
                                         <dl class="dl-horizontal">
                                             <dt>Gold</dt>
                                             <dd>{{ money($character->money) }}</dd>
+                                            <dt>Position</dt>
+                                            <dd>{{ worldToMap($character->map, $character->zone, $character->x, $character->y) }}</dd>
+                                            <dt>Zone</dt>
+                                            <dd>{{ zoneName($character->map, $character->zone) }}</dd>
                                         </dl>
                                     </div>
                                 </div>
