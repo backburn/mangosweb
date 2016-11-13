@@ -21,14 +21,17 @@
                                         </span>
                                     </div>
                                     <div class="panel-body">
-                                        <img width="100%" src="/img/maps/enus/zoom/{{ $character->zone }}.jpg" />
+                                        <div style="position: relative;">
+                                            <div style="width: 10px; height: 10px; border-radius: 50%; position: absolute; left: {{ mapX($character->map, $character->zone, $character->position_x, $character->position_y) }}%; top:{{ mapY($character->map, $character->zone, $character->position_x, $character->position_y) }}%;"></div>
+                                            <img width="100%" src="/img/maps/enus/zoom/{{ $character->zone }}.jpg" />
+                                        </div>
                                         <dl class="dl-horizontal">
                                             <dt>Gold</dt>
                                             <dd>{{ money($character->money) }}</dd>
                                             <dt>Position</dt>
                                             <dd>
-                                                {{ mapX($character->map, $character->zone, $character->position_x, $character->position_y) }} X
-                                                {{ mapY($character->map, $character->zone, $character->position_x, $character->position_y) }} Y
+                                                 X
+                                                 Y
                                             </dd>
                                             <dt>Zone</dt>
                                             <dd>{{ zoneName($character->map, $character->zone) }}</dd>
