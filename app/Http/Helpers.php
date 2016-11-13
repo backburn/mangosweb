@@ -61,3 +61,10 @@ function class_name($class) {
         11 => "Druid"
     ][$class] ?? '';
 }
+
+function money($copper) {
+    $gold = $copper / 10000;
+    $silver = $copper / 100;
+    $copper = $copper % 100;
+    return sprintf("%dg%ds%dc", $gold, $silver, $copper);
+}
