@@ -155,7 +155,7 @@ function worldToMap($map, $zone, $x, $y) {
 
         $_x = ($x - $map['x_max']) / (($map['x_min'] - $map['x_max']) / 100);
         $_y = ($y - $map['y_max']) / (($map['y_min'] - $map['y_max']) / 100);
-        return ['x' => $_x, 'y' => $_y];
+        return ['x' => $_y, 'y' => $_x];
     }
     return ['x' => 0, 'y' => 0];
 }

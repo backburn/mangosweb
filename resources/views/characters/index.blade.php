@@ -22,7 +22,7 @@
                                     </div>
                                     <div class="panel-body">
                                         <div style="position: relative;">
-                                            <div style="width: 10px; height: 10px; border-radius: 50%; position: absolute; left: {{ mapX($character->map, $character->zone, $character->position_x, $character->position_y) }}%; top:{{ mapY($character->map, $character->zone, $character->position_x, $character->position_y) }}%;"></div>
+                                            <div style="background-color: #fff; width: 6px; height: 6px; border-radius: 50%; position: absolute; left: {{ mapX($character->map, $character->zone, $character->position_x, $character->position_y) }}%; top:{{ mapY($character->map, $character->zone, $character->position_x, $character->position_y) }}%;"></div>
                                             <img width="100%" src="/img/maps/enus/zoom/{{ $character->zone }}.jpg" />
                                         </div>
                                         <dl class="dl-horizontal">
