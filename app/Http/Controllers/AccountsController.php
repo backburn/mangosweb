@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 
 class AccountsController extends Controller
 {
+    private $user;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->user = \Auth::user();
     }
 
     /**
@@ -20,7 +23,7 @@ class AccountsController extends Controller
      */
     public function index(Request $request)
     {
-        $accounts = Account::where('email', \Auth::user()->email);
+        $accounts = $this->user->accounts();
         if ($request->ajax()) {
             return response()->json($accounts->get());
         } else {
