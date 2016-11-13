@@ -150,6 +150,9 @@ function worldToMap($map, $zone, $x, $y) {
         if ($map['x_min'] == $map['x_max'] || $map['y_min'] == $map['y_max']) {
             return ['x' => 0, 'y' => 0];
         }
+        // x = (x - maEntry->x1) / ((maEntry->x2 - maEntry->x1) / 100);
+        // y = (y - maEntry->y1) / ((maEntry->y2 - maEntry->y1) / 100); // client y coord from top to down
+
         $_x = ($x - $map['x_max']) / (($map['x_min'] - $map['x_max']) / 100);
         $_y = ($y - $map['y_max']) / (($map['y_min'] - $map['y_max']) / 100);
         return ['x' => $_x, 'y' => $_y];

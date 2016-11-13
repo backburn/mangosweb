@@ -26,8 +26,8 @@
                                             <dd>{{ money($character->money) }}</dd>
                                             <dt>Position</dt>
                                             <dd>
-                                                {{ mapX($character->map, $character->zone, $character->x, $character->y) }} X
-                                                {{ mapY($character->map, $character->zone, $character->x, $character->y) }} Y
+                                                {{ mapX($character->map, $character->zone, $character->position_x, $character->position_y) }} X
+                                                {{ mapY($character->map, $character->zone, $character->position_x, $character->position_y) }} Y
                                             </dd>
                                             <dt>Zone</dt>
                                             <dd>{{ zoneName($character->map, $character->zone) }}</dd>
