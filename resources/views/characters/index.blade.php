@@ -36,8 +36,8 @@
                                 <td>{{ $character->guid }}</td>
                                 <td>{{ $character->account }}</td>
                                 <td>{{ $character->name }}</td>
-                                <td><img src="{{ race_image($character->gender, $character->race) }}"></td>
-                                <td><img src="{{ class_image($character->class) }}"></td>
+                                <td><img width="16" src="{{ race_image($character->gender, $character->race) }}"></td>
+                                <td><img width="16" src="{{ class_image($character->class) }}"></td>
                                 <td>{{ $character->gender }}</td>
                                 <td>{{ $character->level }}</td>
                                 <td>{{ $character->xp }}</td>
