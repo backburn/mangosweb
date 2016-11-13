@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Account;
 use App\Character;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class CharactersController extends Controller
      */
     public function index(Request $request)
     {
-        $characters = Character::all();
+        $account_ids = Account::where('email', \Auth::user()->email)->pluck('id');
+        $characters = Character::whereIn('id', $account_ids);
+
         if ($request->ajax()) {
             return response()->json($characters->get());
         } else {
