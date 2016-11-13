@@ -26,7 +26,9 @@ class CharactersController extends Controller
      */
     public function index(Request $request)
     {
-        $characters = \Auth::user()->characters();
+        $characters = \Auth::user()->accounts()->map(function($account) {
+           return $account->characters();
+        });
         if ($request->ajax()) {
             return response()->json($characters);
         } else {

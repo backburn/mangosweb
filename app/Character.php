@@ -138,7 +138,7 @@ use Illuminate\Database\Eloquent\Model;
 class Character extends Model
 {
     protected $connection = 'chars';
-	//protected $table = 'characters';
+	protected $table = 'characters';
     public $timestamps = false;
 
     protected $fillable = [

@@ -52,10 +52,4 @@ class User extends Authenticatable
     public function accounts() {
         return $this->hasMany('App\Account');
     }
-
-    public function characters() {
-        return $this->hasManyThrough('App\Character', 'App\Account');
-    }
-
-
 }
