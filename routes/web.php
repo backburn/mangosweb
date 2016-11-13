@@ -18,18 +18,18 @@ Route::get('/', ['as' => 'welcome', 'uses' => function () {
 //Auth::routes();
 // Authentication Routes...
 $this->get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm'])->name('login');
-$this->post('login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
-$this->post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout'])->name('logout');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 $this->get('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
-$this->post('register', ['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
+$this->post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
 $this->get('password/reset', ['as' => 'password.reset', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
-$this->post('password/email', ['as' => 'password.reset', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
+$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 $this->get('password/reset/{token}', ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
-$this->post('password/reset', ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@reset']);
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('/realms', ['as' => 'realms', 'uses' => 'RealmsController@index']);
