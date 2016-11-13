@@ -60,6 +60,7 @@ class AccountsController extends Controller
             'email' => \Auth::user()->email,
             'gmlevel' => 0,
             'expansion' => 1,
+            'user_id' => \Auth::user()->id,
         ]);
     }
 
