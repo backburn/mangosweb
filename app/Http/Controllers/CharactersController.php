@@ -74,7 +74,7 @@ class CharactersController extends Controller
      */
     public function show($id)
     {
-        $account_ids = Account::where('email', \Auth::user()->email)->pluck('id');
+        $account_ids = Account::where('user_id', \Auth::user()->id)->pluck('id');
         $character = Character::whereId($id)->whereIn('account', $account_ids)->firstOrFail();
         if (!$character) { abort(403, 'Unauthorized action.'); }
         return view('characters.show', ['character' => $character]);
