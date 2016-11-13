@@ -2,14 +2,13 @@
 
 @section('content')
 <div class="container">
+    @foreach($accounts as $account)
     <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Characters</div>
-                @foreach
                 <div class="panel-body">
-                    All characters:
-
+                    All characters for account {{ $account->username }}:
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -33,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($characters as $character)
+                        @foreach ($account->characters() as $character)
                             <tr>
                                 <td>{{ $character->guid }}</td>
                                 <td>{{ $character->account }}</td>
@@ -62,5 +61,6 @@
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 @endsection
