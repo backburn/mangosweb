@@ -54,3 +54,20 @@ Breadcrumbs::register('accounts.edit', function($breadcrumbs, $account)
     $breadcrumbs->parent('accounts.show', $account);
     $breadcrumbs->push('Edit Account', route('accounts.edit', $account->id));
 });
+
+
+
+
+// Home > Login
+Breadcrumbs::register('login', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Login', route('login'));
+});
+
+// Home > Register
+Breadcrumbs::register('register', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Register', route('register'));
+});
