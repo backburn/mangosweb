@@ -33,5 +33,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('/realms', ['as' => 'realms', 'uses' => 'RealmsController@index']);
-Route::get('/characters', ['as' => 'characters', 'uses' => 'CharactersController@index']);
+
 Route::resource('/accounts', 'AccountsController');
+
+Route::resource('/characters', 'CharactersController');

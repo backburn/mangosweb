@@ -139,4 +139,9 @@ class Character extends Model
 {
     protected $connection = 'chars';
 	protected $table = 'characters';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'name', 'race', 'class', 'gender'
+    ];
 }
