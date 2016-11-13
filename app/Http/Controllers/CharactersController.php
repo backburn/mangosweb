@@ -32,7 +32,7 @@ class CharactersController extends Controller
         if ($request->ajax()) {
             return response()->json($characters->get());
         } else {
-            return view('characters.index', ['characters' => $characters]);
+            return view('characters.index', ['characters' => $characters->paginate(10)]);
         }
     }
 
