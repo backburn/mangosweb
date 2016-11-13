@@ -152,6 +152,14 @@ function worldToMap($map, $zone, $x, $y) {
     return ['x' => 0, 'y' => 0];
 }
 
+function mapX($map, $zone, $x, $y) {
+    return worldToMap($map, $zone, $x, $y)['x'];
+}
+
+function mapY($map, $zone, $x, $y) {
+    return worldToMap($map, $zone, $x, $y)['y'];
+}
+
 function zoneName($map, $zone) {
     global $world_maps;
     return $world_maps[$map.'_'.$zone]['name'] ?? 'Twisting Nether';

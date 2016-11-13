@@ -25,7 +25,10 @@
                                             <dt>Gold</dt>
                                             <dd>{{ money($character->money) }}</dd>
                                             <dt>Position</dt>
-                                            <dd>{{ worldToMap($character->map, $character->zone, $character->x, $character->y) }}</dd>
+                                            <dd>
+                                                {{ mapX($character->map, $character->zone, $character->x, $character->y) }} X
+                                                {{ mapY($character->map, $character->zone, $character->x, $character->y) }} Y
+                                            </dd>
                                             <dt>Zone</dt>
                                             <dd>{{ zoneName($character->map, $character->zone) }}</dd>
                                         </dl>
