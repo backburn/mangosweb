@@ -1,14 +1,18 @@
 <?php
 
-function race_image($race) {
-    return '/img/' . [
+function gender($id) {
+    return ['male', 'female'][$id];
+}
+
+function race_image($gender, $race) {
+    return '/img/' . gender($gender) . '_' . [
         1 => "human",
         2 => "orc",
         3 => "dwarf",
         4 => "nightelf",
         5 => "undead",
         6 => "tauren",
-        7 => "hnome",
+        7 => "gnome",
         8 => "troll",
         10 => "bloodelf",
         11 => "draenei"
@@ -23,7 +27,7 @@ function class_image($class) {
         4 => "rogue",
         5 => "priest",
         7 => "shaman",
-        8 => "nage",
+        8 => "mage",
         9 => "warlock",
         11 => "druid"
     ][$class] . '.png' ?? '';
