@@ -26,13 +26,11 @@ class CharactersController extends Controller
      */
     public function index(Request $request)
     {
-        $characters = \Auth::user()->accounts()->get()->map(function($account) {
-           return $account->characters();
-        });
+        $accounts = \Auth::user()->accounts()->get();
         if ($request->ajax()) {
-            return response()->json($characters);
+            return response()->json($accounts->map(function($a){return $a->characters()->get();}));
         } else {
-            return view('characters.index', ['characters' => $characters]);
+            return view('characters.index', ['accounts' => $accounts]);
         }
     }
 
