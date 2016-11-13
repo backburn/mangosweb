@@ -71,3 +71,11 @@ Breadcrumbs::register('register', function($breadcrumbs)
     $breadcrumbs->parent('home');
     $breadcrumbs->push('Register', route('register'));
 });
+
+// Home > Password > Reset
+Breadcrumbs::register('password.reset', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Register', route('register'));
+    $breadcrumbs->push('Reset', route('register'));
+});
